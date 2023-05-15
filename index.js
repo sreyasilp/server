@@ -5,7 +5,7 @@ import cors from "cors";
 import productsRoute from "./routes/products.js";
 import usersRoute from "./routes/user.js";
 import { graphqlHTTP } from 'express-graphql';
-import schema from "./schema/schema.js";
+// import schema from "./schema/schema.js";
 import myAuthenticationService from "./middleware/graphqlAuth.js";
 
 const app = express();
@@ -17,16 +17,16 @@ app.use(cors());
 app.use("/product", productsRoute);
 app.use("/user", usersRoute);
 
-app.use(
-  '/graphql',
-  graphqlHTTP({
-    schema,
-    graphiql: true,
-    context: {
-      auth: myAuthenticationService,
-    },
-  })
-);
+// app.use(
+//   '/graphql',
+//   graphqlHTTP({
+//     schema,
+//     graphiql: true,
+//     context: {
+//       auth: myAuthenticationService,
+//     },
+//   })
+// );
 
 const MONOGO_DB_CONN_URL =
   "mongodb+srv://code416:code416@code416.yzuornt.mongodb.net/?retryWrites=true&w=majority";
